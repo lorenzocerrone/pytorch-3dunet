@@ -945,7 +945,6 @@ class MaskCheck:
         self.invert = invert
 
     def __call__(self, m):
-        assert m.max() <= 1.0 and m.min() >= 0.0, "Input tensor is not a binary mask"
         if self.invert:
             return np.where(m < 0.5, 1, 0)
 
